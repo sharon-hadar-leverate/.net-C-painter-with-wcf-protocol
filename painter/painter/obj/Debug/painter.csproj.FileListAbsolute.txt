@@ -1,1 +1,9 @@
 C:\first_sharon\painter\painter\bin\Debug\painter.exe.config
+C:\first_sharon\painter\painter\bin\Debug\painter.exe
+C:\first_sharon\painter\painter\bin\Debug\painter.pdb
+C:\first_sharon\painter\painter\obj\Debug\painter.csprojResolveAssemblyReference.cache
+C:\first_sharon\painter\painter\obj\Debug\painter.Form1.resources
+C:\first_sharon\painter\painter\obj\Debug\painter.Properties.Resources.resources
+C:\first_sharon\painter\painter\obj\Debug\painter.csproj.GenerateResource.Cache
+C:\first_sharon\painter\painter\obj\Debug\painter.exe
+C:\first_sharon\painter\painter\obj\Debug\painter.pdb
