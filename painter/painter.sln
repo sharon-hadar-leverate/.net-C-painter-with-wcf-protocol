@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "painter", "painter\painter.csproj", "{A266DE50-565A-4FA0-8B3A-31EE15B55E28}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductService", "ProductService\ProductService.csproj", "{F70D98A8-9918-4341-8859-E62D5365A7A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductInterfaces", "ProductInterfaces\ProductInterfaces.csproj", "{1CDBF45E-04B7-47BC-B9EB-B74C5B895A40}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{A266DE50-565A-4FA0-8B3A-31EE15B55E28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A266DE50-565A-4FA0-8B3A-31EE15B55E28}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A266DE50-565A-4FA0-8B3A-31EE15B55E28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F70D98A8-9918-4341-8859-E62D5365A7A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F70D98A8-9918-4341-8859-E62D5365A7A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F70D98A8-9918-4341-8859-E62D5365A7A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F70D98A8-9918-4341-8859-E62D5365A7A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CDBF45E-04B7-47BC-B9EB-B74C5B895A40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CDBF45E-04B7-47BC-B9EB-B74C5B895A40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CDBF45E-04B7-47BC-B9EB-B74C5B895A40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CDBF45E-04B7-47BC-B9EB-B74C5B895A40}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
