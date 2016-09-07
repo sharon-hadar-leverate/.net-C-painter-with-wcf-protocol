@@ -203,6 +203,21 @@ namespace painter
       //  ChannelFactory<IWCFPaint>("PainterEndpoint");
       //IWCFPaint proxy = channelFactory.CreateChannel();
       m_proxy.DoWork();
+      
+      m_proxy.Save(this);
+
+      //List<int> l = new List<int> {1, 2, 3, 4, 5};
+      //var l2 = l.Where(i => i > 3).Select(i => i * 2).ToList();
+
+      //var l3 = new List<int>();
+      //for (int i = 0; i < l.Count; i++)
+      //{
+      //  if (l[i] > 3)
+      //  {
+      //    l3.Add(l[i]*2);
+      //  }
+      //}
+
     }
 
     private void lineClick_MouseClick(object sender, MouseEventArgs e)
