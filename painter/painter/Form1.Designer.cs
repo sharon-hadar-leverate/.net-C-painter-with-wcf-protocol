@@ -42,6 +42,8 @@
       this.lineClick = new System.Windows.Forms.PictureBox();
       this.penClick = new System.Windows.Forms.PictureBox();
       this.ellipseClick = new System.Windows.Forms.PictureBox();
+      this.Save = new System.Windows.Forms.Button();
+      this.Open = new System.Windows.Forms.Button();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -102,9 +104,9 @@
       // 
       // pictureBox2
       // 
-      this.pictureBox2.Location = new System.Drawing.Point(599, 148);
+      this.pictureBox2.Location = new System.Drawing.Point(577, 101);
       this.pictureBox2.Name = "pictureBox2";
-      this.pictureBox2.Size = new System.Drawing.Size(32, 30);
+      this.pictureBox2.Size = new System.Drawing.Size(122, 30);
       this.pictureBox2.TabIndex = 4;
       this.pictureBox2.TabStop = false;
       // 
@@ -120,16 +122,16 @@
       // 
       // pictureBox3
       // 
-      this.pictureBox3.Location = new System.Drawing.Point(634, 148);
+      this.pictureBox3.Location = new System.Drawing.Point(711, 101);
       this.pictureBox3.Name = "pictureBox3";
-      this.pictureBox3.Size = new System.Drawing.Size(32, 30);
+      this.pictureBox3.Size = new System.Drawing.Size(122, 30);
       this.pictureBox3.TabIndex = 6;
       this.pictureBox3.TabStop = false;
       // 
       // BrushClick
       // 
       this.BrushClick.Image = ((System.Drawing.Image)(resources.GetObject("BrushClick.Image")));
-      this.BrushClick.Location = new System.Drawing.Point(639, 74);
+      this.BrushClick.Location = new System.Drawing.Point(638, 51);
       this.BrushClick.Name = "BrushClick";
       this.BrushClick.Size = new System.Drawing.Size(41, 42);
       this.BrushClick.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -140,7 +142,7 @@
       // recClick
       // 
       this.recClick.Image = ((System.Drawing.Image)(resources.GetObject("recClick.Image")));
-      this.recClick.Location = new System.Drawing.Point(686, 74);
+      this.recClick.Location = new System.Drawing.Point(685, 51);
       this.recClick.Name = "recClick";
       this.recClick.Size = new System.Drawing.Size(41, 42);
       this.recClick.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -151,7 +153,7 @@
       // lineClick
       // 
       this.lineClick.Image = ((System.Drawing.Image)(resources.GetObject("lineClick.Image")));
-      this.lineClick.Location = new System.Drawing.Point(733, 74);
+      this.lineClick.Location = new System.Drawing.Point(732, 51);
       this.lineClick.Name = "lineClick";
       this.lineClick.Size = new System.Drawing.Size(41, 42);
       this.lineClick.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -162,7 +164,7 @@
       // penClick
       // 
       this.penClick.Image = ((System.Drawing.Image)(resources.GetObject("penClick.Image")));
-      this.penClick.Location = new System.Drawing.Point(781, 74);
+      this.penClick.Location = new System.Drawing.Point(780, 51);
       this.penClick.Name = "penClick";
       this.penClick.Size = new System.Drawing.Size(41, 42);
       this.penClick.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -173,7 +175,7 @@
       // ellipseClick
       // 
       this.ellipseClick.Image = ((System.Drawing.Image)(resources.GetObject("ellipseClick.Image")));
-      this.ellipseClick.Location = new System.Drawing.Point(592, 74);
+      this.ellipseClick.Location = new System.Drawing.Point(591, 51);
       this.ellipseClick.Name = "ellipseClick";
       this.ellipseClick.Size = new System.Drawing.Size(41, 42);
       this.ellipseClick.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -181,11 +183,32 @@
       this.ellipseClick.TabStop = false;
       this.ellipseClick.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ellipseClick_MouseClick);
       // 
+      // Save
+      // 
+      this.Save.Location = new System.Drawing.Point(577, 23);
+      this.Save.Name = "Save";
+      this.Save.Size = new System.Drawing.Size(120, 22);
+      this.Save.TabIndex = 12;
+      this.Save.Text = "Save";
+      this.Save.UseVisualStyleBackColor = true;
+      this.Save.Click += new System.EventHandler(this.button3_Click);
+      // 
+      // Open
+      // 
+      this.Open.Location = new System.Drawing.Point(713, 23);
+      this.Open.Name = "Open";
+      this.Open.Size = new System.Drawing.Size(120, 22);
+      this.Open.TabIndex = 13;
+      this.Open.Text = "Open";
+      this.Open.UseVisualStyleBackColor = true;
+      // 
       // Form1
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(844, 411);
+      this.Controls.Add(this.Open);
+      this.Controls.Add(this.Save);
       this.Controls.Add(this.ellipseClick);
       this.Controls.Add(this.penClick);
       this.Controls.Add(this.lineClick);
@@ -229,6 +252,8 @@
     private System.Windows.Forms.PictureBox lineClick;
     private System.Windows.Forms.PictureBox penClick;
     private System.Windows.Forms.PictureBox ellipseClick;
+    private System.Windows.Forms.Button Save;
+    private System.Windows.Forms.Button Open;
   }
 }
 

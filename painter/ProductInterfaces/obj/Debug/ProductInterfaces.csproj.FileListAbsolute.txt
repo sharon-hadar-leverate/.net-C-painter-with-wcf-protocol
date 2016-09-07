@@ -1,0 +1,5 @@
+C:\first_sharon\painter\ProductInterfaces\bin\Debug\ProductInterfaces.dll
+C:\first_sharon\painter\ProductInterfaces\bin\Debug\ProductInterfaces.pdb
+C:\first_sharon\painter\ProductInterfaces\obj\Debug\ProductInterfaces.csprojResolveAssemblyReference.cache
+C:\first_sharon\painter\ProductInterfaces\obj\Debug\ProductInterfaces.dll
+C:\first_sharon\painter\ProductInterfaces\obj\Debug\ProductInterfaces.pdb

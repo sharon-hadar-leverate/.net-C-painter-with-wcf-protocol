@@ -7,3 +7,5 @@ C:\first_sharon\painter\painter\obj\Debug\painter.Properties.Resources.resources
 C:\first_sharon\painter\painter\obj\Debug\painter.csproj.GenerateResource.Cache
 C:\first_sharon\painter\painter\obj\Debug\painter.exe
 C:\first_sharon\painter\painter\obj\Debug\painter.pdb
+C:\first_sharon\painter\painter\bin\Debug\ProductInterfaces.dll
+C:\first_sharon\painter\painter\bin\Debug\ProductInterfaces.pdb

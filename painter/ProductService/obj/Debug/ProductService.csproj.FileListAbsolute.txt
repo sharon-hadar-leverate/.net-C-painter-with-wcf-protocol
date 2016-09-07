@@ -1,0 +1,16 @@
+C:\first_sharon\painter\ProductService\obj\Debug\ProductService.csprojResolveAssemblyReference.cache
+C:\first_sharon\painter\ProductService\bin\Debug\PainterDB.mdf
+C:\first_sharon\painter\ProductService\bin\Debug\PainterDB_log.ldf
+C:\first_sharon\painter\ProductService\bin\Debug\ProductService.exe.config
+C:\first_sharon\painter\ProductService\bin\Debug\ProductService.exe
+C:\first_sharon\painter\ProductService\bin\Debug\ProductService.pdb
+C:\first_sharon\painter\ProductService\bin\Debug\EntityFramework.dll
+C:\first_sharon\painter\ProductService\bin\Debug\EntityFramework.SqlServer.dll
+C:\first_sharon\painter\ProductService\bin\Debug\ProductInterfaces.dll
+C:\first_sharon\painter\ProductService\bin\Debug\ProductInterfaces.pdb
+C:\first_sharon\painter\ProductService\bin\Debug\EntityFramework.xml
+C:\first_sharon\painter\ProductService\bin\Debug\EntityFramework.SqlServer.xml
+C:\first_sharon\painter\ProductService\obj\Debug\ProductService.exe
+C:\first_sharon\painter\ProductService\obj\Debug\ProductService.pdb
+C:\first_sharon\painter\ProductService\bin\Debug\painter.exe
+C:\first_sharon\painter\ProductService\bin\Debug\painter.pdb

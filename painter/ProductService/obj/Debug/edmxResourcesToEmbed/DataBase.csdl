@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PainterDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="PainterDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="saved_data" EntityType="PainterDBModel.saved_data" />
+  </EntityContainer>
+  <EntityType Name="saved_data">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="XML" Type="String" Nullable="false" />
+    <Property Name="filename" Type="String" Nullable="false" />
+  </EntityType>
+</Schema>
