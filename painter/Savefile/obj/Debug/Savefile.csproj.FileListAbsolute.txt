@@ -1,0 +1,11 @@
+C:\first_sharon\painter\Savefile\bin\Debug\Savefile.exe.config
+C:\first_sharon\painter\Savefile\bin\Debug\Savefile.exe
+C:\first_sharon\painter\Savefile\bin\Debug\Savefile.pdb
+C:\first_sharon\painter\Savefile\obj\Debug\Savefile.SaveGraphics.resources
+C:\first_sharon\painter\Savefile\obj\Debug\Savefile.Properties.Resources.resources
+C:\first_sharon\painter\Savefile\obj\Debug\Savefile.csproj.GenerateResource.Cache
+C:\first_sharon\painter\Savefile\obj\Debug\Savefile.exe
+C:\first_sharon\painter\Savefile\obj\Debug\Savefile.pdb
+C:\first_sharon\painter\Savefile\bin\Debug\ProductInterfaces.dll
+C:\first_sharon\painter\Savefile\bin\Debug\ProductInterfaces.pdb
+C:\first_sharon\painter\Savefile\obj\Debug\Savefile.csprojResolveAssemblyReference.cache

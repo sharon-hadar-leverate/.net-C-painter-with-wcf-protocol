@@ -12,12 +12,15 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.ServiceModel;
 using ProductInterfaces;
+using Savefile;
+using Action = ProductInterfaces.Action;
 
 
 namespace painter
 {
   public partial class Form1 : Form
   {
+    List<DrawAction> actions = new List<DrawAction>();
     private SolidBrush m_color;
     private Color m_paintcolor = Color.Black;
     private bool m_choose = false;
@@ -25,12 +28,8 @@ namespace painter
     private int m_x, m_y,m_x1, m_y1 = 0;
     private Item m_currItem;
     private readonly IWCFPaint m_proxy;
+    private Action m_action;
 
-
-    public enum Item
-    {
-      Rectangle, Ellipse, Line, Brush, Pencil, Colorpicker
-    }
 
     public Form1()
     {
@@ -53,38 +52,52 @@ namespace painter
     {
       Graphics g1 = panel1.CreateGraphics();
       g1.Clear(panel1.BackColor);
+      actions.Clear();
+      
     }
 
     private void panel1_MouseUp(object sender, MouseEventArgs e)
     {
+      m_action = Action.Up;
+
+      actions.Add(new DrawAction(m_action, e.X, e.Y, m_currItem, m_paintcolor));
+
+
       m_paint = false;
       m_x1 = e.X;
       m_y1 = e.Y;
-      switch (m_currItem) 
-      { 
+      switch (m_currItem)
+      {
         case Item.Ellipse:
-          {
+        {
           Pen myPen = new Pen(m_paintcolor);
-          Graphics g = panel1.CreateGraphics();
-          g.DrawEllipse(myPen, m_x, m_y, m_x1-m_x, m_y1-m_y);
+          using (Graphics g = panel1.CreateGraphics())
+          {
+            g.DrawEllipse(myPen, m_x, m_y, m_x1 - m_x, m_y1 - m_y);
+          }
           break;
         }
         case Item.Rectangle:
-          {
+        {
           var myPen = new Pen(m_paintcolor);
-          Graphics g = panel1.CreateGraphics();
-          g.DrawRectangle(myPen, Math.Min(m_x, m_x1),Math.Min( m_y, m_y1), Math.Abs(m_x1 - m_x), Math.Abs(m_y1 - m_y));
+          using (Graphics g = panel1.CreateGraphics())
+          {
+            g.DrawRectangle(myPen, Math.Min(m_x, m_x1), Math.Min(m_y, m_y1), Math.Abs(m_x1 - m_x), Math.Abs(m_y1 - m_y));
+          }
           break;
         }
         case Item.Line:
-          {
+        {
           Pen myPen = new Pen(m_paintcolor);
-          Graphics g = panel1.CreateGraphics();
-          g.DrawLine(myPen, m_x, m_y, m_x1, m_y1);
+          using (Graphics g = panel1.CreateGraphics())
+          {
+            g.DrawLine(myPen, m_x, m_y, m_x1, m_y1);
+          }
           break;
-        } }
+        }
+      }
     }
-  
+
 
 
     private void pictureBox1_Click(object sender, EventArgs e)
@@ -94,6 +107,8 @@ namespace painter
 
     private void panel1_MouseDown(object sender, MouseEventArgs e)
     {
+      m_action = Action.Down;
+      actions.Add(new DrawAction(m_action, e.X, e.Y, m_currItem, m_paintcolor));
       m_paint = true;
       m_x = e.X;
       m_y = e.Y;
@@ -101,21 +116,26 @@ namespace painter
 
     private void panel1_MouseMove(object sender, MouseEventArgs e)
     {
+      m_action= Action.Move;
+     
+
       if (m_paint)
       {
         switch (m_currItem)
         {
           case Item.Brush:
             {
+              actions.Add(new DrawAction(m_action, e.X, e.Y, m_currItem, m_paintcolor));
               m_color = new SolidBrush(m_paintcolor);
-              Graphics g = panel1.CreateGraphics();
-              g.FillEllipse(m_color, e.X, e.Y, 20, 20);
-              g.Dispose();
+              using (Graphics g = panel1.CreateGraphics())
+              {
+                g.FillEllipse(m_color, e.X, e.Y, 20, 20);
+              }
               break;
             }
           case Item.Pencil:
             {
-
+              actions.Add(new DrawAction(m_action, e.X, e.Y, m_currItem, m_paintcolor));
               m_color = new SolidBrush(m_paintcolor);
               using (Graphics g = panel1.CreateGraphics())
               {
@@ -170,14 +190,6 @@ namespace painter
     {
       Bitmap bmp = (Bitmap)pictureBox1.Image.Clone();
       m_paintcolor = bmp.GetPixel(e.X, e.Y);
-      //  red.Value = paintcolor.R;
-      //  green.Value = paintcolor.G;
-      //  blue.Value = paintcolor.B;
-      //  alphaval.Value = paintcolor.A;
-      //  redval.Text = paintcolor.R.ToString();
-      //  greenval.Text = paintcolor.G.ToString();
-      //  blueval.Text = paintcolor.B.ToString();
-      //  alphaval.Text = paintcolor.A.ToString();
       pictureBox3.BackColor = m_paintcolor;
       m_choose = true;
     }
@@ -199,12 +211,24 @@ namespace painter
 
     private void button3_Click(object sender, EventArgs e)
     {
-      //ChannelFactory<IWCFPaint> channelFactory = new
-      //  ChannelFactory<IWCFPaint>("PainterEndpoint");
-      //IWCFPaint proxy = channelFactory.CreateChannel();
-      m_proxy.DoWork();
-      
-      m_proxy.Save(this);
+      string send="";
+      var savingbox = new SaveGraphicsForm();
+      var dialogResult = savingbox.ShowDialog(this);
+      if (dialogResult == DialogResult.OK)
+      {
+        string imageName = savingbox.ImageName;
+        //foreach (var V in actions)
+        //{
+        //  send += V.ToString();
+        //}
+       // MessageBox.Show(send);
+        // MessageBox.Show(imageName);
+        m_proxy.Save(actions,imageName);
+      }
+
+ 
+
+      //  m_proxy.Save(this);
 
       //List<int> l = new List<int> {1, 2, 3, 4, 5};
       //var l2 = l.Where(i => i > 3).Select(i => i * 2).ToList();
@@ -230,20 +254,22 @@ namespace painter
       m_currItem = Item.Pencil;
     }
 
+    private void saveFileDialog1_FileOk(object sender, CancelEventArgs e)
+    {
+
+    }
+
+    private void panel1_Paint(object sender, PaintEventArgs e)
+    {
+      
+    }
+
     private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
     {
       if (m_choose)
       {
         Bitmap bmp = (Bitmap)pictureBox1.Image.Clone();
         m_paintcolor = bmp.GetPixel(e.X, e.Y);
-        //   red.Value = paintcolor.R;
-        //   red.Value = paintcolor.G;
-        //   red.Value = paintcolor.B;
-        //   red.Value = paintcolor.A;
-        //   redval.Text = paintcolor.R.ToString();
-        //   greenval.Text = paintcolor.G.ToString();
-        //   blueval.Text = paintcolor.B.ToString();
-        //   alphaval.Text = paintcolor.A.ToString();
         pictureBox2.BackColor = m_paintcolor;
 
       }
@@ -264,4 +290,6 @@ namespace painter
 
     }
   }
+
+
 }

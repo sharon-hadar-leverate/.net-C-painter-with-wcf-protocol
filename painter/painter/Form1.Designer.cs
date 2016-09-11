@@ -44,6 +44,7 @@
       this.ellipseClick = new System.Windows.Forms.PictureBox();
       this.Save = new System.Windows.Forms.Button();
       this.Open = new System.Windows.Forms.Button();
+      this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -81,6 +82,7 @@
       this.panel1.Name = "panel1";
       this.panel1.Size = new System.Drawing.Size(558, 396);
       this.panel1.TabIndex = 2;
+      this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
       this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
       this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
       this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
@@ -202,6 +204,10 @@
       this.Open.Text = "Open";
       this.Open.UseVisualStyleBackColor = true;
       // 
+      // saveFileDialog1
+      // 
+      this.saveFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog1_FileOk);
+      // 
       // Form1
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -254,6 +260,7 @@
     private System.Windows.Forms.PictureBox ellipseClick;
     private System.Windows.Forms.Button Save;
     private System.Windows.Forms.Button Open;
+    private System.Windows.Forms.SaveFileDialog saveFileDialog1;
   }
 }
 

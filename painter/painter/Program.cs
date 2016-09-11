@@ -29,6 +29,9 @@ namespace painter
       //proxy.DoWork();
 
 
+      List<DrawAction> actions = new List<DrawAction>();
+
+
 
 
     }

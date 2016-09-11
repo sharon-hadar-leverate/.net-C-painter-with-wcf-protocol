@@ -33,6 +33,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -42,7 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Action.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="DrawAction.cs" />
+    <Compile Include="Item.cs" />
     <Compile Include="IWCFPaint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

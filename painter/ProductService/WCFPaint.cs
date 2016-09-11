@@ -16,12 +16,22 @@ namespace ProductService
   public class WCFPaint : IWCFPaint
   {
 
+
     public  void DoWork()
     {
       Console.WriteLine("you in the server MTHF");
     }
 
-
+    public void Save(List<DrawAction> obj, string filename)
+    {
+      ;
+      Console.WriteLine(Environment.NewLine+"the drawing file:'" +filename+"' was saved and contains:");
+      foreach (var V1 in obj)
+      {
+        Console.WriteLine(V1.ToString());
+      }
+      Console.WriteLine("===========**********===========");
+    }
 
 
 
