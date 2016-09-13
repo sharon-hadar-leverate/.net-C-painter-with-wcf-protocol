@@ -21,7 +21,7 @@ namespace ProductInterfaces
     public Item AItem { get; private set; }
 
     [DataMember]
-    public Color APaintcolor { get; private set; }
+    public string APaintcolor { get; private set; }
 
     public DrawAction()
     {
@@ -33,7 +33,7 @@ namespace ProductInterfaces
       AItem = item;
       Xcoor = x;
       Ycoor = y;
-      APaintcolor = paintcolor;
+      APaintcolor = paintcolor.Name;
     }
 
     public override string ToString()

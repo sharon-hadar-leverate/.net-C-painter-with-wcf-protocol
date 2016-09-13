@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Drawing.Imaging;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -15,7 +17,13 @@ namespace ProductInterfaces
     [OperationContract]
     //void Save(string filename, ImageFormat format);
     void Save(List<DrawAction> obj, string filename);
-    //void Open(string filename);
+
+    [OperationContract]
+    void Open(string filename);
     void DoWork();
+
+
+    [OperationContract]
+    IEnumerable<string> Getfiles();
   }
 }

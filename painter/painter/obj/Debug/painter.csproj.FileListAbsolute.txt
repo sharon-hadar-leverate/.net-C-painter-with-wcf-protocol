@@ -10,3 +10,4 @@ C:\first_sharon\painter\painter\obj\Debug\painter.pdb
 C:\first_sharon\painter\painter\bin\Debug\ProductInterfaces.dll
 C:\first_sharon\painter\painter\bin\Debug\ProductInterfaces.pdb
 C:\first_sharon\painter\painter\obj\Debug\Savefile.SaveGraphicsForm.resources
+C:\first_sharon\painter\painter\obj\Debug\painter.Open.resources

@@ -211,7 +211,7 @@ namespace painter
 
     private void button3_Click(object sender, EventArgs e)
     {
-      string send="";
+
       var savingbox = new SaveGraphicsForm();
       var dialogResult = savingbox.ShowDialog(this);
       if (dialogResult == DialogResult.OK)
@@ -262,6 +262,12 @@ namespace painter
     private void panel1_Paint(object sender, PaintEventArgs e)
     {
       
+    }
+
+    private void Open_Click(object sender, EventArgs e)
+    {
+      var openingbox = new Open();
+      var dialogResult = openingbox.ShowDialog(this);
     }
 
     private void pictureBox1_MouseMove(object sender, MouseEventArgs e)

@@ -203,6 +203,7 @@
       this.Open.TabIndex = 13;
       this.Open.Text = "Open";
       this.Open.UseVisualStyleBackColor = true;
+      this.Open.Click += new System.EventHandler(this.Open_Click);
       // 
       // saveFileDialog1
       // 
