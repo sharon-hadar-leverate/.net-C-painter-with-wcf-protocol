@@ -15,14 +15,12 @@ namespace Savefile
 {
   public partial class SaveGraphicsForm : Form
   {
-    private IWCFPaint m_proxy;
     public SaveGraphicsForm()
     {
       InitializeComponent();
     }
 
     public string ImageName { get; private set; }
-
 
     private void button1_Click(object sender, EventArgs e)
     {

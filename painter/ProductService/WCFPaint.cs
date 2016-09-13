@@ -56,7 +56,7 @@ namespace ProductService
           Console.WriteLine(firstID);
 
           sqlQuery =
-            "INSERT INTO PainterDB.dbo.Actions (action,item,color,x_coor,y_coor,P_ID) VALUES (@Action,@AItem,@APaintcolor,@Xcoor,@Ycoor," +
+            "INSERT INTO PainterDB.dbo.Actions (action,item,color,x_coor,y_coor,P_ID) VALUES (@Action,@AItem,@APaintcolor,@Xcoor,@y_coor," +
             firstID + ");";
 
           //conn.Execute(sqlQuery,new { = obj})
@@ -76,13 +76,13 @@ namespace ProductService
           //foreach (var A in obj)
           //{
           //  insertActionsParameters.Add(
-          //    new DrawAction() { Action = A.Action, AItem = A.AItem, APaintcolor = A.APaintcolor.Name, Xcoor = A.Xcoor, Ycoor = A.Ycoor }
+          //    new DrawAction() { Action = A.Action, AItem = A.AItem, APaintcolor = A.APaintcolor.Name, Xcoor = A.Xcoor, y_coor = A.y_coor }
           //  );
           //cmd.Parameters["AAction"].Value = A.Action;
           //cmd.Parameters["AAItem"].Value = A.AItem;
           //cmd.Parameters["AAPaintcolor"].Value = A.APaintcolor.Name;
           //cmd.Parameters["AXcoor"].Value = A.Xcoor;
-          //cmd.Parameters["AYcoor"].Value = A.Ycoor;
+          //cmd.Parameters["AYcoor"].Value = A.y_coor;
           //Console.WriteLine(cmd.CommandText);
 
           //cmd.ExecuteNonQuery();
@@ -111,9 +111,31 @@ namespace ProductService
 
 
 
-    public void Open(string filename)
+    public IEnumerable<DrawAction> Open(string filename)
     {
+      using (var conn = new SqlConnection("Server=.;Integrated Security=true; MultipleActiveResultSets = True"))
+      {
+        conn.Open();
+        string sqlQuery = "Select * From PainterDB.dbo.Actions A join PainterDB.dbo.Paints P on P.P_ID=A.P_ID Where P.filename = @filename ; ";
+        Console.WriteLine(sqlQuery);
+        var transaction = conn.BeginTransaction();
+        try
+        {
+          var actions = conn.Query<DrawAction>(sqlQuery, new {filename = filename}, transaction);
+          foreach (var V in actions)
+          {
+            Console.WriteLine(@"-==Action = {0}, Color = {1}, Item = {2}, X = {3}, Y = {4}==-", V.Action, V.color, V.item, V.x_coor, V.y_coor);
+          }
+          
+          return actions;
+        }
+        catch (Exception ex)
+        {
+          Console.WriteLine(ex.Message);
+          throw;
+        }
 
+      }
     }
 
 

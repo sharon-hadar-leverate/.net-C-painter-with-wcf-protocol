@@ -12,16 +12,16 @@ namespace ProductInterfaces
     public Action Action { get; private set; }
 
     [DataMember]
-    public int Xcoor { get; private set; }
+    public int x_coor { get; private set; }
 
     [DataMember]
-    public int Ycoor { get; private set; }
+    public int y_coor { get; private set; }
 
     [DataMember]
-    public Item AItem { get; private set; }
+    public Item item { get; private set; }
 
     [DataMember]
-    public string APaintcolor { get; private set; }
+    public string color { get; private set; }
 
     public DrawAction()
     {
@@ -30,18 +30,18 @@ namespace ProductInterfaces
     public DrawAction(Action action, int x, int y, Item item, Color paintcolor)
     {
       Action = action;
-      AItem = item;
-      Xcoor = x;
-      Ycoor = y;
-      APaintcolor = paintcolor.Name;
+      this.item = item;
+      x_coor = x;
+      y_coor = y;
+      color = paintcolor.Name;
     }
 
     public override string ToString()
     {
       string ActionString;
-      ActionString = Action.ToString() + " " + AItem.ToString() + " " + APaintcolor.ToString() + " " +
-                     Xcoor.ToString() + " " +
-                     Ycoor.ToString();
+      ActionString = Action.ToString() + " " + item.ToString() + " " + color.ToString() + " " +
+                     x_coor.ToString() + " " +
+                     y_coor.ToString();
       return ActionString;
     }
 

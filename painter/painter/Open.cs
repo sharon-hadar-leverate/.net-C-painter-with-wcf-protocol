@@ -17,7 +17,7 @@ namespace painter
           
     private readonly IWCFPaint m_proxy;
 
-
+    public string openfile { get; private set; }
     public Open()
     {
       InitializeComponent();
@@ -25,29 +25,28 @@ namespace painter
       m_proxy = channelFactory.CreateChannel();
     }
 
-    private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-    {
-
-    }
-
-    private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-    {
-
-    }
-
     private void button1_Click(object sender, EventArgs e)
     {
-
-      IEnumerable<string> dt = m_proxy.Getfiles();
-      foreach (var V in dt)
+      if (listView1.Items.Count == 0)
       {
-        listView1.Items.Add(V);
+        IEnumerable<string> dt = m_proxy.Getfiles();
+        foreach (var V in dt)
+        {
+          listView1.Items.Add(V);
+        }
       }
-
-
-
-
     }
 
+    private void button2_Click(object sender, EventArgs e)
+    {
+     openfile = listView1.SelectedItems[0].SubItems[0].Text;
+      MessageBox.Show(openfile);
+
+      if (openfile!= "")
+      {
+        this.DialogResult = DialogResult.OK;
+        this.Close();
+      }
+    }
   }
 }

@@ -78,8 +78,9 @@
       this.button2.Name = "button2";
       this.button2.Size = new System.Drawing.Size(75, 23);
       this.button2.TabIndex = 3;
-      this.button2.Text = "Choose file";
+      this.button2.Text = "Open file";
       this.button2.UseVisualStyleBackColor = true;
+      this.button2.Click += new System.EventHandler(this.button2_Click);
       // 
       // Open
       // 
@@ -90,8 +91,12 @@
       this.Controls.Add(this.listView1);
       this.Controls.Add(this.button1);
       this.Controls.Add(this.label1);
+      this.MaximizeBox = false;
+      this.MinimizeBox = false;
       this.Name = "Open";
-      this.Text = "Form2";
+      this.ShowIcon = false;
+      this.ShowInTaskbar = false;
+      this.Text = "Open File";
       this.ResumeLayout(false);
       this.PerformLayout();
 

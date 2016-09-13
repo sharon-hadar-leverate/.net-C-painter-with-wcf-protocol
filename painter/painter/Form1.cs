@@ -116,67 +116,33 @@ namespace painter
 
     private void panel1_MouseMove(object sender, MouseEventArgs e)
     {
-      m_action= Action.Move;
-     
+      m_action = Action.Move;
+
 
       if (m_paint)
       {
         switch (m_currItem)
         {
           case Item.Brush:
+          {
+            actions.Add(new DrawAction(m_action, e.X, e.Y, m_currItem, m_paintcolor));
+            m_color = new SolidBrush(m_paintcolor);
+            using (Graphics g = panel1.CreateGraphics())
             {
-              actions.Add(new DrawAction(m_action, e.X, e.Y, m_currItem, m_paintcolor));
-              m_color = new SolidBrush(m_paintcolor);
-              using (Graphics g = panel1.CreateGraphics())
-              {
-                g.FillEllipse(m_color, e.X, e.Y, 20, 20);
-              }
-              break;
+              g.FillEllipse(m_color, e.X, e.Y, 20, 20);
             }
+            break;
+          }
           case Item.Pencil:
+          {
+            actions.Add(new DrawAction(m_action, e.X, e.Y, m_currItem, m_paintcolor));
+            m_color = new SolidBrush(m_paintcolor);
+            using (Graphics g = panel1.CreateGraphics())
             {
-              actions.Add(new DrawAction(m_action, e.X, e.Y, m_currItem, m_paintcolor));
-              m_color = new SolidBrush(m_paintcolor);
-              using (Graphics g = panel1.CreateGraphics())
-              {
-                g.FillEllipse(m_color, e.X, e.Y, 5, 5);
-              }
-              break;
+              g.FillEllipse(m_color, e.X, e.Y, 5, 5);
             }
-            //  case Item.Ellipse:
-            //    {
-            //      Pen myPen = new Pen(paintcolor);
-            //      Graphics g = panel1.CreateGraphics();
-            //      g.DrawEllipse(myPen, x, y, 10, 10);
-            //      break;
-            //    }
-            //  case Item.Rectangle:
-            //    {
-            //      Pen myPen = new Pen(paintcolor);
-            //      Graphics g = panel1.CreateGraphics();
-            //      g.DrawRectangle(myPen, x, y, 10, 10);
-            //      break;
-            //    }
-            //  case Item.Line:
-            //    {
-            //      Pen myPen = new Pen(paintcolor);
-            //      Graphics g = panel1.CreateGraphics();
-            //      g.DrawLine(myPen, x, y, x1, y1);
-            //      break;
-            //    }
-            //}
-
-            /// m_color = new SolidBrush(paintcolor);
-            /// Graphics g = panel1.CreateGraphics();
-            /// g.FillEllipse(m_color, e.X, e.Y, 20, 20);
-            /// g.Dispose();
-            /// // m_color = new SolidBrush(Color.Black);
-            // Graphics g = panel1.CreateGraphics();
-            // g.FillEllipse(m_color, e.X, e.Y, 20, 20);
-            // g.Dispose();
-
-
-
+            break;
+          }
         }
       }
     }
@@ -217,12 +183,6 @@ namespace painter
       if (dialogResult == DialogResult.OK)
       {
         string imageName = savingbox.ImageName;
-        //foreach (var V in actions)
-        //{
-        //  send += V.ToString();
-        //}
-       // MessageBox.Show(send);
-        // MessageBox.Show(imageName);
         m_proxy.Save(actions,imageName);
       }
 
@@ -267,7 +227,9 @@ namespace painter
     private void Open_Click(object sender, EventArgs e)
     {
       var openingbox = new Open();
-      var dialogResult = openingbox.ShowDialog(this);
+      openingbox.ShowDialog(this);
+      var openfile = openingbox.openfile;
+      m_proxy.Open(openfile);
     }
 
     private void pictureBox1_MouseMove(object sender, MouseEventArgs e)

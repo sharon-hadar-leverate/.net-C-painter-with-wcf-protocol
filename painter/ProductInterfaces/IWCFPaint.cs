@@ -19,7 +19,7 @@ namespace ProductInterfaces
     void Save(List<DrawAction> obj, string filename);
 
     [OperationContract]
-    void Open(string filename);
+    IEnumerable<DrawAction> Open(string filename);
     void DoWork();
 
 
