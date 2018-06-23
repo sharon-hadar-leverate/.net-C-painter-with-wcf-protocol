@@ -8,7 +8,7 @@ the painter ui is a winform that you can draw rectangles, cyrcles, line, brush a
 
 the painter server alows you to save and open system "drawing" files.
 
-all system drawing are saved to SQL database which needs to be configure at the WCFPainter class via:
+all system drawing are saved to SQL database which needs to be configure at the WCFPainter class at:
 ```
   using (var conn = new SqlConnection("Server=.;Integrated Security=true; MultipleActiveResultSets = True"))
 ```
